@@ -33,7 +33,7 @@ class Player{
         this.symbol = symbol
     }
 }
-
+ 
 
 
 //Handles game logic, and user input
