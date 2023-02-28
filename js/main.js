@@ -6,6 +6,9 @@ let player2;
 document.querySelector('.start').addEventListener('click', startGame)
 
 function startGame(){
+    if(board != undefined){
+        board.clearBoard()
+    }
     board = new Board
     game = new Game
     player1 = new Player('x')
