@@ -4,6 +4,7 @@ class Board{
     }
     populateBoard(){
         
+        
         for(let i = 0; i < 9; i++){
             this.grid.push(new Cell(i))
         }
@@ -18,7 +19,6 @@ class Board{
         this.grid.forEach((cell) => {
             console.log('hi')
             cell.element.innerText = "";
-            cell.element.removeEventListener('click', cell.boundPlayCell)
             document.querySelector('.winner').innerText = `Player 1 is X, Player 2 is O`
         });
     }
