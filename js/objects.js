@@ -9,7 +9,6 @@ class Board{
         }
         this.grid.forEach(cell => {
             const boundPlayCell = cell.playCell.bind(cell)
-            
             cell.boundPlayCell = boundPlayCell
             cell.element.addEventListener('click', cell.boundPlayCell)
             console.log('populatingcell')
@@ -19,7 +18,7 @@ class Board{
         this.grid.forEach((cell) => {
             console.log('hi')
             cell.element.innerText = "";
-            
+            document.querySelector('.winner').innerText = `Player 1 is X, Player 2 is O`
         });
     }
 }
