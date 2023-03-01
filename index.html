@@ -5,14 +5,20 @@
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
 
-		<title>Title in the tab</title>
+		<title>Tic Tac Toe</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
 
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
+		
 		<section class="game">
+
 			<section class="board">
 				<div class="square" id="cell0"></div>
 				<div class="square" id="cell1"></div>
@@ -24,10 +30,14 @@
 				<div class="square" id="cell7"></div>
 				<div class="square" id="cell8"></div>
 			</section>
-			<button class="start">New Game</button>
-			<h3>Player 1 Wins:</h3>
-			<h3>Player 2 Wins:</h3>
+
+			<div>
+				<button class="start">New Game</button>
+				<h3 class="winner">Player 1 is X, Player 2 is O</h3>
+			</div>
+
 		</section>
+
 		<script src="js/objects.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
