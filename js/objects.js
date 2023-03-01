@@ -3,11 +3,13 @@ class Board{
         this.grid = []
     }
     populateBoard(){
+        
         for(let i = 0; i < 9; i++){
             this.grid.push(new Cell(i))
         }
         this.grid.forEach(cell => {
             const boundPlayCell = cell.playCell.bind(cell)
+            
             cell.boundPlayCell = boundPlayCell
             cell.element.addEventListener('click', cell.boundPlayCell)
             console.log('populatingcell')
@@ -17,7 +19,7 @@ class Board{
         this.grid.forEach((cell) => {
             console.log('hi')
             cell.element.innerText = "";
-            cell.element.removeEventListener("click", cell.boundPlayCell);
+            
         });
     }
 }
@@ -36,6 +38,10 @@ class Cell{
     }
     playCell(){
         game.playTurn(this)
+        let win = game.checkWin()
+        if (win != null) {
+            game.showWinner(win)
+        }
     }
 
 }
@@ -63,6 +69,44 @@ class Game{
         }else{
             this.turn++;
             cell.setState(player2.symbol)
+        }
+    }
+
+    checkWin() {
+        const value = board.grid;
+
+        //horizontal
+        for (let i = 0; i < 9; i += 3) {
+            if (value[i].state === value[i+1].state && value[i].state === value[i+2].state && value[i].state !== '') {
+              return value[i].state
+            }
+          }
+
+          //vertical
+          for (let i = 0; i < 3; i++) {
+            if (value[i].state === value[i+3].state && value[i].state === value[i+6].state && value[i].state !== '') {
+              return value[i].state
+            }
+          }
+
+          //diagonal
+          if (value[0].state === value[4].state && value[0].state === value[8].state && value[0].state !== '') {
+            return value[0].state
+          }
+          if (value[2].state === value[4].state && value[2].state === value[6].state && value[2].state !== '') {
+            return value[2].state
+          }
+
+          // no winner
+        return null;
+    }
+    showWinner(winner) {
+        let winnerText;
+        winner === 'x' ? winnerText = 'Player 1' : winnerText = 'Player 2';
+        document.querySelector('.winner').innerText = `${winnerText} wins!`
+        for (let i = 0; i < 9; i++) {
+            console.log(board.grid[i])
+            board.grid.forEach(cell => cell.element.removeEventListener("click", cell.boundPlayCell))
         }
     }
 }
