@@ -19,6 +19,7 @@ class Board{
         this.grid.forEach((cell) => {
             console.log('hi')
             cell.element.innerText = "";
+            cell.element.removeEventListener('click', cell.boundPlayCell)
             document.querySelector('.winner').innerText = `Player 1 is X, Player 2 is O`
         });
     }
