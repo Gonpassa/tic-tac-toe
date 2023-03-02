@@ -11,12 +11,11 @@ class Board{
             const boundPlayCell = cell.playCell.bind(cell)
             cell.boundPlayCell = boundPlayCell
             cell.element.addEventListener('click', cell.boundPlayCell)
-            console.log('populatingcell')
+            // console.log('populatingcell')
         })
     } 
     clearBoard() {
         this.grid.forEach((cell) => {
-            console.log('hi')
             cell.element.innerText = "";
             document.querySelector('.winner').innerText = `Player 1 is X, Player 2 is O`
         });
@@ -74,6 +73,8 @@ class Game{
     checkWin() {
         const value = board.grid;
 
+       
+
         //horizontal
         for (let i = 0; i < 9; i += 3) {
             if (value[i].state === value[i+1].state && value[i].state === value[i+2].state && value[i].state !== '') {
@@ -96,16 +97,29 @@ class Game{
             return value[2].state
           }
 
-          // no winner
+        //   // if tie
+        //   for (let i = 0; i < 9; i++) {
+        //     if (value[i].state === '') {
+                
+        //     } else {
+        //         return 'no winner'
+        //     }
+        //   }
+
+          // no winner yet
         return null;
+
     }
     showWinner(winner) {
         let winnerText;
-        winner === 'x' ? winnerText = 'Player 1' : winnerText = 'Player 2';
-        document.querySelector('.winner').innerText = `${winnerText} wins!`
-        for (let i = 0; i < 9; i++) {
-            console.log(board.grid[i])
-            board.grid.forEach(cell => cell.element.removeEventListener("click", cell.boundPlayCell))
+        if (winner === 'no winner') {
+            document.querySelector("It's a tie. No winner!")
+        } else {
+            winner === 'x' ? winnerText = 'Player 1' : winnerText = 'Player 2';
+            document.querySelector('.winner').innerText = `${winnerText} wins!`
         }
+            // console.log(board.grid[i])
+            board.grid.forEach(cell => cell.element.removeEventListener("click", cell.boundPlayCell))
+        
     }
 }
