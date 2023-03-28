@@ -3,7 +3,7 @@ Object Oriented Tic-Tac-Toe
 
 **Link to project:** https://oop-tic-tac-toe.netlify.app/
 
-![tic-tac-toe](https://raw.githubusercontent.com/Gonpassa/Koruki-website/main/Loruki.jpg)
+![tic-tac-toe](https://github.com/Gonpassa/tic-tac-toe/blob/main/tic-tac-toe.jpg?raw=true)
 
 ## How It's Made:
 
